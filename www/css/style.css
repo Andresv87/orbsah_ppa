@@ -70,14 +70,31 @@ form select{
 	display: block;
 	width: 276px;
 }
+form #dia {
+	width: 80px;
+	float:left;
+}
+form #mes {
+	width: 80px;
+	float: left;
+	margin-left: 10px;
+}
+form #ano {
+	width: 97px;
+	float: left;
+	margin-left: 10px;
+}
+form #personaje {
+	margin-top: 7px;
+	float:left;
+}
 form input.acepto {
 	width: 22px;
 	float: left;
 	color: #144c97;
 	font-size: 14px;
 	font-family: verdana;
-	margin-top:3px;
-	position:absolute;
+	margin-top:10px;
 }
 form input.big{
 	position:fixed;
@@ -91,17 +108,17 @@ form input.big{
 form p.terminos {
 	float: left;
 	color: #144c97;
-	font-size: 14px;
+	font-size: 13px;
 	font-family: verdana;
-	margin: 5px 0 0 35px;
+	margin: 10px 0 0 0;
 	font-weight: bold;
-	position:absolute;
+	display: block;
 }
 form .submit{
 	width: 79px;
 	height:70px;
 	color:transparent;
-	margin: 32px 200px;
+	margin: 89px 200px;
 	position:absolute;
 	background:url('../img/btn_enviar.png') no-repeat top center;
 }
