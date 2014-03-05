@@ -122,6 +122,21 @@ form .submit{
 	position:absolute;
 	background:url('../img/btn_enviar.png') no-repeat top center;
 }
+#terminos{
+	display:none;
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	background:url('../img/bck_form_alpha.png') repeat top center;
+	color:#000;
+}
+#terminos .inner {
+	padding: 32px;
+	height: 545px;
+	overflow-y: auto;
+}
 img.volver {
 	position: absolute;
 	top: 663px;

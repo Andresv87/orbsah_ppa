@@ -36,6 +36,15 @@ jQuery(document).ready(function() {
     }); 
 });
 
+//terminos
+jQuery(document).on('click','form .terminos',function(e){
+	jQuery('#terminos').show();
+});
+jQuery(document).on('click','#terminos',function(e){
+	jQuery('#terminos').hide();
+});
+
+//enviar
 jQuery(document).on('click','form .submit',function(e){
 	filled = 1;
 	
@@ -114,8 +123,12 @@ function get_values(){
 	d3 = jQuery('form #mail').val();
 	d4 = jQuery('form #telefono').val();
 	d5 = jQuery('form #factura').val();
-	d6 = jQuery('form #ciudad').val();
-	d7 = jQuery('form #personaje').val();
+	d6 = jQuery('form #lugar').val();
+	d7 = jQuery('form #ciudad').val();
+	d8 = jQuery('form #dia').val();
+	d9 = jQuery('form #mes').val();
+	d10 = jQuery('form #ano').val();
+	d11 = jQuery('form #personaje').val();
 	
 	//borra los datos de los valores
 	jQuery("form input").each(function() {
@@ -123,7 +136,7 @@ function get_values(){
 		jQuery(this).val(default_val);
 	});
 	
-	return d1 + ',' + d2 + ',' + d3 + ',' + d4 + ',' + d5 + ',' + d6 + ',' + d7;
+	return d1 + ',' + d2 + ',' + d3 + ',' + d4 + ',' + d5 + ',' + d6 + ',' + d7 + ',' + d8 + ',' + d9 + ',' + d10 + ',' + d11;
 }
 
 //graba el formulario
