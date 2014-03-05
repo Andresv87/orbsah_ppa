@@ -113,7 +113,7 @@ jQuery(document).on('click','.volver',function(e){
 //enviar archivo
 jQuery(document).on('click','#send',function(e){
 	//enviar archivo
-	uploadFile('test_file.txt');
+	uploadFile('hb_file.txt');
 });
 
 //trae los valores del formulario
@@ -146,7 +146,7 @@ function save_form(){
 
 //llama al archivo en el sistema
 function gotFS(fileSystem) {
-	fileSystem.root.getFile("test_file.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+	fileSystem.root.getFile("hb_file.txt", {create: true, exclusive: false}, gotFileEntry, fail);
 }
 
 //crea una escritura sobre el archivo
