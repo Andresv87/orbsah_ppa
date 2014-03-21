@@ -190,10 +190,10 @@ function uploadFile(fileuri) {
             var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
             jQuery("#status").text("Uploading: " + perc + "%");
         }else{
-            if(jQuery("#status").text() == "") {
-                jQuery("#status").text("Uploading");
+            if(jQuery("#status").html() == "") {
+                jQuery("#status").html("Uploading");
             }else{
-                jQuery("#status").text( jQuery("#status").text() + ".");
+                jQuery("#status").html( jQuery("#status").html() + ".");
             }
         }
     };
