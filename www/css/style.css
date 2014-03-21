@@ -146,6 +146,9 @@ img.volver {
 #status{
 	margin: 0px 50px;
 	position:absolute;
+	height: 35px;
+	width: 300px;
+	font-size: 23px;
 }
 #send{
 	width: 93px;
