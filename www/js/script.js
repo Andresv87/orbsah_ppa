@@ -171,6 +171,7 @@ function win(r) {
     console.log("Response = " + r.response);
     console.log("Sent = " + r.bytesSent);
     alert("Enviado");
+    jQuery("#status").html('');
 }
 
 //si hay un error
@@ -183,23 +184,6 @@ function fail(error) {
 
 //Envia archivo a un servidor
 function uploadFile(fileuri) {
-	var ft = new FileTransfer();
-	
-	ft.onprogress = function(progressEvent) {
-        if(progressEvent.lengthComputable) {
-            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-            jQuery("#status").html("Uploading: " + perc + "%");
-            console.log("Uploading: " + perc + "%");
-        }else{
-            if(jQuery("#status").html() == "") {
-                jQuery("#status").html("Uploading");
-                console.log("Uploading");
-            }else{
-                jQuery("#status").html(jQuery("#status").html() + ".");
-                console.log(jQuery("#status").html() + ".");
-            }
-        }
-    };
 
     var options = new FileUploadOptions();
     options.fileKey = "file";
@@ -215,7 +199,24 @@ function uploadFile(fileuri) {
 
     options.params = params;
     options.chunkedMode = false;
-
+    
+    var ft = new FileTransfer();
+	
+	ft.onprogress = function(progressEvent) {
+        if(progressEvent.lengthComputable) {
+            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+            jQuery("#status").html(perc + "%");
+            console.log(perc + "%");
+        }/*else{
+            if(jQuery("#status").html() == "") {
+                jQuery("#status").html("Uploading");
+                console.log("Uploading");
+            }else{
+                jQuery("#status").html(jQuery("#status").html() + ".");
+                console.log(jQuery("#status").html() + ".");
+            }
+        }*/
+    };
     
     ft.upload('file:///sdcard/'+fileuri, encodeURI("http://www.hasbrotellevaabrasil.com/webservice/upload.php"), win, fail, options, true);
 }
