@@ -143,6 +143,10 @@ img.volver {
 	left: 20px;
 	display:none;
 }
+#status{
+	margin: 0px 50px;
+	position:absolute;
+}
 #send{
 	width: 93px;
 	height:97px;

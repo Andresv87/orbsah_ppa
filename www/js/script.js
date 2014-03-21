@@ -183,10 +183,26 @@ function fail(error) {
 
 //Envia archivo a un servidor
 function uploadFile(fileuri) {
+	var ft = new FileTransfer();
+	
+	ft.onprogress = function(progressEvent) {
+        if(progressEvent.lengthComputable) {
+            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+            jQuery("#status").text("Uploading: " + perc + "%");
+        }else{
+            if(jQuery("#status").text() == "") {
+                jQuery("#status").text("Uploading");
+            }else{
+                jQuery("#status").text( jQuery("#status").text() + ".");
+            }
+        }
+    };
+
     var options = new FileUploadOptions();
     options.fileKey = "file";
     options.fileName = fileuri
     options.mimeType = "text/plain";
+    options.chunkedMode = false;
     options.headers = {
 		Connection: "close"
 	};
@@ -197,7 +213,7 @@ function uploadFile(fileuri) {
     options.params = params;
     options.chunkedMode = false;
 
-    var ft = new FileTransfer();
-    ft.upload('file:///sdcard/'+fileuri, encodeURI("http://www.hasbrotellevaabrasil.com/webservice/upload.php"), win, fail, options);
+    
+    ft.upload('file:///sdcard/'+fileuri, encodeURI("http://www.hasbrotellevaabrasil.com/webservice/upload.php"), win, fail, options, true);
 }
 
